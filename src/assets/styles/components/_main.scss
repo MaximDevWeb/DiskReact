@@ -1,0 +1,379 @@
+@use "../variable";
+
+.main {
+  margin: 0 variable.$margin;
+  padding: variable.$padding-lg;
+  width: 100%;
+  min-height: 100vh;
+  background-color: variable.$bg;
+  border-radius: variable.$bd-rd-lg variable.$bd-rd-lg 0 0;
+
+  @media (max-width: 900px) {
+    padding: variable.$padding;
+    width: calc(100% - 2.5rem);
+    min-height: auto;
+    border-radius: variable.$bd-rd-lg;
+  }
+}
+
+.folders {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1rem;
+
+  @media (max-width: 1800px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 1600px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 1100px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 550px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.folder-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  padding: variable.$padding-sm;
+  border-radius: variable.$bd-rd;
+  min-height: 100px;
+  color: black;
+  box-shadow: variable.$shadow;
+}
+
+.folder-item__header {
+  display: flex;
+  position: relative;
+}
+
+.folder-item__image {
+  width: 40px;
+  margin-right: variable.$margin-sm;
+}
+
+.folder-item__title {
+  width: 100%;
+
+  span {
+    margin-top: variable.$margin-xxs;
+    display: block;
+    color: variable.$link;
+    font-size: variable.$font-sm;
+    font-weight: 300;
+  }
+}
+
+.folder-item__option {
+  margin-top: variable.$margin-xxs;
+
+  .icon {
+    width: 16px;
+    height: 16px;
+    padding: 0.275rem;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: variable.$bg;
+    }
+  }
+}
+
+.folder-item__size {
+  span {
+    margin-bottom: variable.$margin-xxs;
+    display: block;
+    color: variable.$link;
+    font-size: variable.$font-sm;
+    font-weight: 300;
+  }
+}
+
+.files {
+  margin-top: variable.$margin-lg;
+}
+
+.files__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.files__list {
+  margin-top: variable.$margin;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: variable.$margin-sm;
+
+  @media (max-width: 1800px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.file {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: variable.$padding-xs variable.$padding-sm;
+  border: 1px solid white;
+  border-radius: variable.$bd-rd-sm;
+  box-shadow: variable.$shadow;
+  cursor: pointer;
+
+  @media (max-width: 900px) {
+    .file__name {
+      font-size: variable.$font-sm;
+      margin-right: variable.$margin-xs;
+    }
+
+    .file__date {
+      font-size: variable.$font-xs;
+      width: 70px;
+    }
+
+    .file__size {
+      display: none;
+    }
+  }
+}
+
+.file_active {
+  border: 1px solid variable.$link;
+}
+
+.file__icon {
+  flex: none;
+  width: 40px;
+  height: auto;
+  margin-right: variable.$margin;
+}
+
+.file__name {
+  width: 100%;
+  color: black;
+}
+
+.file__link {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 50%;
+  color: black;
+  transition: all 0.3s;
+
+  .icon {
+    color: inherit;
+  }
+
+  &:hover {
+    background-color: variable.$main;
+  }
+}
+
+.file__date,
+.file__size {
+  flex: none;
+  width: 100px;
+  text-align: center;
+  font-size: variable.$font-sm;
+  color: variable.$link;
+}
+
+.files__list_grid {
+  margin-top: variable.$margin;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: variable.$padding;
+
+  .file {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: variable.$padding;
+  }
+
+  .file__icon {
+    width: 50px;
+    height: auto;
+  }
+
+  .file__name {
+    margin: variable.$margin 0;
+  }
+
+  .file__date,
+  .file__size {
+    width: auto;
+    margin: 0 variable.$margin-xs;
+  }
+
+  @media (max-width: 1800px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media (max-width: 1600px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 1100px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 550px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media (max-width: 900px) {
+    .file__name {
+      text-align: center;
+      font-size: variable.$font;
+      margin-right: 0;
+    }
+
+    .file__date {
+      font-size: variable.$font-sm;
+      width: auto;
+    }
+
+    .file__size {
+      display: inline-block;
+    }
+  }
+}
+
+.footer {
+  position: fixed;
+  top: -100%;
+  left: 10%;
+  right: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+  padding: variable.$padding-sm variable.$padding;
+  border-radius: 0 0 variable.$bd-rd variable.$bd-rd;
+  z-index: 999;
+  transition: all 0.3s;
+
+  .btn {
+    margin: 0 variable.$margin-xs;
+  }
+
+  @media (max-width: 1300px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-right: variable.$padding-xl;
+  }
+
+  @media (max-width: 550px) {
+    padding-right: variable.$padding;
+    left: variable.$padding;
+    right: variable.$padding;
+  }
+}
+
+.footer_active {
+  top: 0;
+}
+
+.footer__name {
+  max-width: 320px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+
+  @media (max-width: 1300px) {
+    margin-right: variable.$margin;
+  }
+
+  @media (max-width: 1300px) {
+    margin-bottom: variable.$margin-sm;
+  }
+}
+
+.footer__button {
+  display: flex;
+
+  @media (max-width: 550px) {
+    flex-direction: column;
+
+    .btn {
+      margin-bottom: variable.$margin-sm;
+    }
+  }
+}
+
+.footer__option {
+  font-size: variable.$font-sm;
+  display: flex;
+  align-items: center;
+
+  a {
+    display: flex;
+    align-items: center;
+    color: variable.$link;
+    margin-left: variable.$margin;
+
+    .icon {
+      margin-right: variable.$margin-xxs;
+      color: inherit;
+      transition: none;
+    }
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  @media (max-width: 1300px) {
+    width: 100%;
+    justify-content: center;
+    margin-top: variable.$margin-sm;
+  }
+
+  @media (max-width: 550px) {
+    flex-wrap: wrap;
+    margin-top: 0;
+
+    a {
+      margin: variable.$margin-xs variable.$margin-xs 0;
+    }
+  }
+}
+
+a.footer__close {
+  top: variable.$padding-sm;
+  right: variable.$padding-sm;
+  margin-left: variable.$margin;
+  color: variable.$link;
+
+  .icon {
+    color: inherit;
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover {
+    color: white;
+  }
+
+  @media (max-width: 1300px) {
+    position: absolute;
+  }
+
+  @media (max-width: 550px) {
+    margin: 0;
+  }
+}

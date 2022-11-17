@@ -1,0 +1,31 @@
+@use "../variable";
+
+.search {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  .input__block {
+    display: inline-block;
+    width: 350px;
+  }
+
+  .input {
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 900px) {
+    width: auto;
+  }
+
+  @media (max-width: 550px) {
+    width: 100%;
+    margin-top: variable.$margin-sm;
+  }
+}
+
+.search__icon {
+  position: absolute;
+}

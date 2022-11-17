@@ -1,0 +1,31 @@
+@use "../variable";
+
+.mobile-menu__list {
+  margin: 0 variable.$margin variable.$margin;
+  overflow: auto;
+  display: none;
+
+  @media (max-width: 1300px) {
+    display: flex;
+  }
+}
+
+.mobile-menu__item {
+  display: flex;
+  align-items: center;
+  margin-right: variable.$margin-xs;
+  white-space: nowrap;
+  padding: variable.$padding-xs variable.$padding-sm;
+  border-radius: variable.$bd-rd-sm;
+
+  .icon {
+    flex: none;
+    margin-right: variable.$margin-xxs;
+    color: black;
+  }
+}
+
+.mobile-menu_active {
+  color: black;
+  background-color: variable.$main;
+}

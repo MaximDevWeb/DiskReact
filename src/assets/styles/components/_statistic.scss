@@ -1,0 +1,106 @@
+@use "../variable";
+
+.statistic {
+  position: sticky;
+  top: 1rem;
+  flex: none;
+  width: 260px;
+  padding: variable.$padding-lg 1.25rem;
+
+  @media (max-width: 900px) {
+    width: auto;
+  }
+}
+
+.statistic__header {
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+
+.chart {
+  position: relative;
+  margin-top: variable.$margin-lg;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+
+.chart__legend {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+
+.chart__percent {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.labels {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 0.5rem;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+
+.labels__item {
+  margin-left: variable.$margin;
+  display: flex;
+  align-items: center;
+}
+
+.labels__color {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: variable.$margin-xs;
+}
+
+.labels__percent {
+  font-size: variable.$font-sm;
+  color: variable.$link;
+}
+
+.store {
+  margin: variable.$margin-xl 0 variable.$margin-lg;
+  font-size: variable.$font-sm;
+
+  @media (max-width: 900px) {
+    margin: 0 0 variable.$margin-lg 0;
+  }
+}
+
+.timeline {
+  margin-top: variable.$margin-sm;
+  position: relative;
+  height: 10px;
+}
+
+.timeline__path,
+.timeline__line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.timeline__path {
+  width: 100%;
+  background-color: variable.$bg;
+}
+
+.timeline__line {
+  background-color: variable.$main;
+}

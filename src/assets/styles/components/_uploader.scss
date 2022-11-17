@@ -1,0 +1,91 @@
+@use "../variable";
+
+.uploader {
+  position: fixed;
+  right: variable.$padding;
+  bottom: -100%;
+  width: 400px;
+  z-index: 300;
+  box-shadow: variable.$shadow;
+  transition: all 0.3s;
+
+  @media (max-width: 550px) {
+    width: auto;
+    left: variable.$padding;
+  }
+}
+
+.uploader_active {
+  bottom: 0;
+}
+
+.uploader_min {
+  transform: translateY(calc(100% - 40px));
+
+  .icon__min {
+    transform: rotate(-180deg);
+  }
+}
+
+.uploader__header {
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: variable.$padding-xs variable.$padding;
+  background-color: variable.$main;
+  border-radius: variable.$bd-rd-sm variable.$bd-rd-sm 0 0;
+
+  a {
+    color: black;
+  }
+}
+
+.uploader__list {
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: variable.$padding;
+  max-height: 300px;
+  padding: variable.$padding;
+}
+
+.uploader__item {
+  display: flex;
+  align-items: center;
+}
+
+.uploader__icon {
+  height: 30px;
+  width: auto;
+  flex: none;
+  margin-right: variable.$margin-sm;
+}
+
+.uploader__name {
+  width: 100%;
+  font-size: variable.$font-sm;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+
+  .timeline {
+    height: 6px;
+    margin-top: variable.$margin-xs;
+  }
+
+  .timeline__path {
+    background: variable.$bg;
+  }
+}
+
+.uploader__option {
+  flex: none;
+  height: 20px;
+  margin-left: variable.$margin-sm;
+  color: variable.$cusses;
+}
+
+a.uploader__option {
+  color: variable.$danger;
+}

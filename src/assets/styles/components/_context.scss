@@ -1,0 +1,36 @@
+@use "../variable";
+
+.context {
+  position: absolute;
+  right: 0.5rem;
+  top: calc(100% - 0.5rem);
+  overflow: hidden;
+  font-size: variable.$font-sm;
+  font-weight: 300;
+  border-radius: variable.$bd-rd-sm;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+.context_active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.context__item {
+  background-color: variable.$bg;
+  padding: variable.$padding-xxs variable.$padding-sm;
+
+  &:first-child {
+    padding-top: variable.$padding-xs;
+  }
+
+  &:last-child {
+    padding-bottom: variable.$padding-xs;
+  }
+
+  &:hover {
+    background-color: variable.$main;
+  }
+}

@@ -1,0 +1,73 @@
+@use "../variable";
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+.modal__active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal__bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(black, 0.25);
+}
+
+.modal__content {
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+  z-index: 1100;
+  background-color: white;
+  padding: variable.$padding;
+  margin: 0 variable.$margin-sm;
+  border-radius: variable.$bd-rd;
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal__close:hover {
+  color: black;
+}
+
+.modal__footer {
+  display: flex;
+  justify-content: flex-end;
+
+  .btn {
+    margin-left: variable.$margin-xs;
+  }
+}
+
+.modal__body {
+  margin: variable.$margin 0;
+
+  .input__block {
+    margin-bottom: variable.$margin;
+  }
+
+  .input {
+    width: 100%;
+    margin: 0;
+  }
+}

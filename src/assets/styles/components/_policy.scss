@@ -1,0 +1,35 @@
+@use "../variable";
+
+.policy {
+  max-width: 900px;
+  padding: 0 variable.$padding;
+  margin: variable.$margin auto;
+
+  h1 {
+    margin: variable.$margin 0;
+  }
+
+  h2,
+  h3 {
+    margin: variable.$margin 0 variable.$margin-sm;
+  }
+
+  p {
+    margin: variable.$margin-sm 0;
+  }
+
+  ul,
+  li {
+    padding-left: variable.$padding-sm;
+  }
+}
+
+.policy__logo {
+  margin: variable.$margin 0;
+  text-align: center;
+
+  img {
+    width: 150px;
+    height: auto;
+  }
+}

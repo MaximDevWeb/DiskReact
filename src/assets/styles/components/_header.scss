@@ -1,0 +1,26 @@
+@use "../variable";
+
+.header {
+  padding: variable.$padding;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 900px) {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 550px) {
+    justify-content: center;
+  }
+}
+
+.header__logo {
+  flex: none;
+  width: 120px;
+  display: none;
+
+  @media (max-width: 1300px) {
+    display: block;
+  }
+}

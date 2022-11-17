@@ -1,0 +1,112 @@
+@use "../variable";
+
+.user {
+  flex: none;
+  display: flex;
+  align-items: center;
+
+  .btn {
+    margin-right: variable.$margin;
+  }
+
+  @media (max-width: 900px) {
+    width: 100%;
+    margin-top: variable.$margin-sm;
+    justify-content: center;
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      width: 47px;
+      height: 47px;
+      padding: 0;
+
+      span {
+        display: none;
+      }
+
+      .icon {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.user__profile {
+  position: relative;
+  z-index: 10;
+}
+
+.user__profile_active {
+  .user__avatar {
+    border: 1px solid black;
+  }
+
+  .user__menu {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.user__avatar {
+  width: 45px;
+  height: 45px;
+  margin-left: variable.$margin-lg;
+  background-size: cover;
+  border: 1px solid variable.$inactive;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    border: 1px solid black;
+  }
+
+  @media (max-width: 900px) {
+    margin-left: 0;
+  }
+}
+
+.user__menu {
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.5rem);
+  border: 1px solid variable.$inactive;
+  border-radius: variable.$bd-rd-sm;
+  background-color: white;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+
+  p {
+    font-weight: 300;
+    padding: variable.$padding-xs variable.$padding variable.$padding-xxs;
+    white-space: nowrap;
+  }
+
+  a {
+    white-space: nowrap;
+    display: block;
+    padding: variable.$padding-xxs variable.$padding;
+
+    &:first-child {
+      padding-top: variable.$padding-xs;
+    }
+
+    &:last-child {
+      padding-bottom: variable.$padding-xs;
+    }
+
+    &:hover {
+      background-color: variable.$bg;
+    }
+  }
+}
+
+.user__menu_active {
+  opacity: 1;
+  visibility: visible;
+}

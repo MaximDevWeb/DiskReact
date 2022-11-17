@@ -1,0 +1,12 @@
+@use "../variable";
+
+.breadcrumbs {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: variable.$margin;
+
+  .icon {
+    width: 18px;
+    height: 18px;
+  }
+}

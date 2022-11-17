@@ -1,0 +1,88 @@
+@use "../variable";
+
+.navbar {
+  position: sticky;
+  top: 1rem;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 220px;
+  min-height: calc(100vh - 2.5rem);
+  padding: 1.25rem;
+
+  @media (max-width: 1300px) {
+    display: none;
+  }
+}
+
+.navbar__logo {
+  display: flex;
+  justify-content: center;
+
+  a {
+    margin-right: variable.$margin;
+    height: 30px;
+    width: 30px;
+  }
+
+  .icon {
+    color: black;
+    height: 100%;
+    width: 100%;
+  }
+
+  img {
+    width: 120px;
+    height: auto;
+  }
+}
+
+.navbar__list {
+  width: 100%;
+}
+
+.navbar__item {
+  display: flex;
+  align-items: center;
+  padding: variable.$padding-xs variable.$padding;
+  border-radius: variable.$bd-rd-sm;
+  margin-bottom: variable.$margin-xs;
+
+  .icon {
+    margin-right: variable.$margin-sm;
+  }
+
+  &:hover {
+    .icon {
+      color: black;
+    }
+  }
+}
+
+.navbar__item_active {
+  background-color: variable.$main;
+  color: black;
+
+  .icon {
+    color: black;
+  }
+}
+
+.banner {
+  width: 180px;
+  padding: variable.$padding;
+  background-color: variable.$main;
+  border-radius: variable.$bd-rd;
+  text-align: center;
+
+  .banner__header {
+    font-weight: 300;
+    font-size: 1.25rem;
+    margin-bottom: variable.$margin;
+  }
+
+  img {
+    width: 70%;
+  }
+}

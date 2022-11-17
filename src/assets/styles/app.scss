@@ -1,0 +1,360 @@
+@use "normalize";
+@use "variable";
+@use "components/all";
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.container_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container_bg {
+  background-color: variable.$bg;
+}
+
+.container_content {
+  display: flex;
+  align-items: flex-start;
+  max-width: 2560px;
+  margin: 0 auto;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content__wrapper {
+  display: flex;
+  align-items: flex-start;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.flex {
+  display: flex;
+  align-items: flex-start;
+}
+
+.no-scroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+// Margin and Padding style
+.m {
+  &b {
+    &_d {
+      margin-bottom: variable.$margin;
+    }
+  }
+  &t {
+    &_d {
+      margin-top: variable.$margin;
+    }
+    &_lg {
+      margin-top: variable.$margin-lg;
+    }
+    &_xl {
+      margin-top: variable.$margin-xl;
+    }
+  }
+}
+
+// Font style
+.f {
+  &_sm {
+    font-size: variable.$font-sm;
+  }
+  &_lg {
+    font-size: variable.$font-lg;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  font-weight: 400;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  &:first-letter {
+    color: variable.$danger;
+  }
+}
+
+// Input style
+.input__block {
+  position: relative;
+}
+
+.input__block_error {
+  .input,
+  .input:focus {
+    border: 1px solid variable.$danger;
+  }
+
+  .input__error {
+    opacity: 1;
+  }
+}
+
+.input {
+  box-sizing: border-box;
+  border: 1px solid variable.$bg;
+  background-color: variable.$bg;
+  font-weight: 300;
+  font-size: variable.$font;
+  padding: 0.75rem 1rem;
+  margin-bottom: variable.$margin;
+  border-radius: variable.$bd-rd-sm;
+  transition: all 0.3s;
+
+  &:focus {
+    outline: none;
+    border: 1px solid variable.$inactive;
+  }
+}
+
+.input__visible {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  cursor: pointer;
+}
+
+.input__prefix {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+
+  & ~ .input {
+    padding-left: variable.$padding-xl;
+  }
+}
+
+.input__error {
+  position: absolute;
+  right: 10px;
+  top: -10px;
+  background-color: variable.$danger;
+  color: white;
+  font-size: variable.$font-xs;
+  border-radius: variable.$bd-rd;
+  padding: 0.175rem 0.5rem;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.input__checkbox {
+  input[type="checkbox"] {
+    opacity: 0;
+    position: fixed;
+    top: -1000px;
+
+    & ~ label {
+      display: inline-block;
+      position: relative;
+      padding-left: 28px;
+      cursor: pointer;
+
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: -2px;
+        display: block;
+        height: 20px;
+        width: 20px;
+        border: 1px solid variable.$bg;
+        background: variable.$bg;
+        border-radius: variable.$bd-rd-xs;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        left: 4px;
+        top: 2px;
+        display: block;
+        height: 14px;
+        width: 14px;
+        background: variable.$bg;
+        border-radius: variable.$bd-rd-xs;
+      }
+    }
+  }
+
+  input[type="checkbox"]:checked ~ label {
+    &:after {
+      background: variable.$main;
+    }
+  }
+}
+
+.select {
+  position: relative;
+  color: black;
+
+  select {
+    appearance: none;
+    border: 1px solid white;
+    background-color: white;
+    outline: none;
+    padding: variable.$padding-xs variable.$padding-lg variable.$padding-xs
+      variable.$padding-xs;
+    border-radius: variable.$bd-rd-sm;
+    box-shadow: variable.$shadow;
+  }
+
+  .icon {
+    position: absolute;
+    right: variable.$padding-xs;
+    top: variable.$padding-xs;
+  }
+}
+
+.radio-switch {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: variable.$padding-xxs;
+  box-shadow: variable.$shadow;
+  border-radius: variable.$bd-rd-sm;
+
+  input[type="radio"] {
+    position: fixed;
+    top: -1000px;
+    opacity: 0;
+  }
+
+  input[type="radio"]:checked ~ label {
+    background-color: variable.$main;
+  }
+}
+
+.radio-switch__item {
+  label {
+    padding: variable.$padding-xxs;
+    cursor: pointer;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: variable.$bd-rd-xs;
+  }
+
+  .icon {
+    color: black;
+  }
+}
+
+// Button style
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border: 1px solid variable.$bg;
+  background-color: variable.$bg;
+  font-size: variable.$font;
+  padding: 0.75rem 1rem;
+  border-radius: variable.$bd-rd-sm;
+  transition: all 0.3s;
+  color: black;
+  cursor: pointer;
+  outline: none;
+
+  &:hover,
+  &:active {
+    background-color: variable.$bg-black;
+  }
+
+  img {
+    height: 20px;
+    width: auto;
+  }
+
+  .icon {
+    height: 18px;
+    width: 18px;
+    color: inherit;
+    margin-right: variable.$margin-xs;
+  }
+}
+
+.btn_sm {
+  padding: 0.5rem 0.75rem;
+}
+
+.btn_default {
+  background-color: variable.$main;
+
+  &:hover,
+  &:active {
+    background-color: variable.$main-black;
+  }
+}
+
+.btn_black {
+  border: 1px solid black;
+  background-color: black;
+  color: white;
+
+  &:hover,
+  &:active {
+    color: white;
+    background-color: black;
+    box-shadow: variable.$shadow-black;
+  }
+}
+
+.btn_inactive {
+  opacity: 0.8;
+  filter: grayscale(1);
+  pointer-events: none;
+}
+
+// Link style
+a {
+  text-decoration: none;
+  color: variable.$link;
+  transition: all 0.3s;
+
+  &:hover,
+  &:active {
+    color: black;
+  }
+}
+
+// Icon style
+.icon {
+  height: 20px;
+  width: 20px;
+  color: inherit;
+}

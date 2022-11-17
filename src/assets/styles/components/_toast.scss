@@ -1,0 +1,61 @@
+@use "../variable";
+
+.toasts {
+  position: fixed;
+  right: variable.$padding;
+  top: variable.$padding;
+  z-index: 50;
+
+  @media (max-width: 400px) {
+    width: auto;
+    left: variable.$padding;
+  }
+}
+
+.toast {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: variable.$main;
+  box-shadow: variable.$shadow-black-sm;
+  font-size: variable.$font-sm;
+  padding: variable.$padding-xs variable.$padding-sm;
+  border-radius: variable.$bd-rd-xs;
+  margin-bottom: variable.$margin-sm;
+  width: 350px;
+  animation: anim 0.5s;
+
+  .icon {
+    cursor: pointer;
+    flex: none;
+    width: 18px;
+    height: 18px;
+    margin-left: variable.$margin-xs;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.toast_success {
+  color: white;
+  background-color: variable.$cusses;
+}
+
+.toast_danger {
+  color: white;
+  background-color: variable.$danger;
+}
+
+@keyframes anim {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

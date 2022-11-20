@@ -11,11 +11,17 @@ const site: Array<RouteObject> = [
     children: [
       {
         index: true,
-        element: <Page element={Home} title="Home demo" />,
+        element: <Page element={Home} />,
+        loader: () => ({
+          title: "Home demo",
+        }),
       },
       {
         path: "/policy",
-        element: <Page element={Policy} title="Privacy policy" />,
+        element: <Page element={Policy} />,
+        loader: () => ({
+          title: "Privacy policy",
+        }),
       },
     ],
   },

@@ -21,42 +21,42 @@ const dashboard: Array<RouteObject> = [
       },
       {
         path: "files/*",
-        element: <Page element={Files} title="All files" />,
+        element: <Page element={Files} />,
         loader: () => ({
           title: "All files",
         }),
       },
       {
         path: "photos/*",
-        element: <Page element={Photos} title="Photos" />,
+        element: <Page element={Photos} />,
         loader: () => ({
           title: "Photos",
         }),
       },
       {
         path: "albums",
-        element: <Page element={Albums} title="Albums" />,
+        element: <Page element={Albums} />,
         loader: () => ({
           title: "Albums",
         }),
       },
       {
         path: "shares-access",
-        element: <Page element={Shared} title="Shared" />,
+        element: <Page element={Shared} />,
         loader: () => ({
           title: "Shared",
         }),
       },
       {
         path: "archives",
-        element: <Page element={Archives} title="Archives" />,
+        element: <Page element={Archives} />,
         loader: () => ({
           title: "Archives",
         }),
       },
       {
         path: "trash",
-        element: <Page element={Trash} title="Trash" />,
+        element: <Page element={Trash} />,
         loader: () => ({
           title: "Trash",
         }),

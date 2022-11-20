@@ -15,19 +15,31 @@ const auth: Array<RouteObject> = [
     children: [
       {
         index: true,
-        element: <Page element={Login} title="Log In" />,
+        element: <Page element={Login} />,
+        loader: () => ({
+          title: "Log In",
+        }),
       },
       {
         path: "register",
-        element: <Page element={Register} title="Sing Up" />,
+        element: <Page element={Register} />,
+        loader: () => ({
+          title: "Sing Up",
+        }),
       },
       {
         path: "forgot-password",
-        element: <Page element={Forgot} title="Forgot password" />,
+        element: <Page element={Forgot} />,
+        loader: () => ({
+          title: "Forgot password",
+        }),
       },
       {
         path: "new-password",
-        element: <Page element={Password} title="New password" />,
+        element: <Page element={Password} />,
+        loader: () => ({
+          title: "New password",
+        }),
       },
     ],
   },

@@ -8,6 +8,8 @@ import { setUser } from "../../store/reducers/AuthSlice";
 import logo from "../../assets/images/logo.svg";
 import NavbarBanner from "../../components/NavbarBanner";
 import NavbarMenu from "../../components/NavbarMenu";
+import HeaderSearch from "../../components/HeaderSearch";
+import HeaderButtons from "../../components/HeaderButtons";
 
 /**
  * This is the Dashboard component.
@@ -46,36 +48,13 @@ const Dashboard = () => {
           <div className="content">
             <header className="header">
               <a href="#" className="header__logo">
-                <img src="/images/logo.svg" alt="Yandex Disk" />
+                <img src={logo} alt="Yandex Disk" />
               </a>
-              <aside className="search">
-                <div className="input__block">
-                  <svg className="icon input__prefix">
-                    <use xlinkHref="#search"></use>
-                  </svg>
 
-                  <input
-                    type="text"
-                    className="input"
-                    placeholder="search..."
-                  />
-                </div>
-              </aside>
+              <HeaderSearch />
 
               <aside className="user">
-                <a href="#" className="btn btn_default">
-                  <svg className="icon">
-                    <use xlinkHref="#upload"></use>
-                  </svg>
-                  <span>Upload</span>
-                </a>
-
-                <a href="#" className="btn btn_black">
-                  <svg className="icon">
-                    <use xlinkHref="#add_folder"></use>
-                  </svg>
-                  <span>Create</span>
-                </a>
+                <HeaderButtons />
 
                 <HeaderProfile />
               </aside>

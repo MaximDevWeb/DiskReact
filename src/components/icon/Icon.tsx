@@ -7,9 +7,10 @@ import sprite from "./sprite.svg";
 
 type Props = {
   type: string;
+  className?: string
 };
 
-const Icon = ({ type }: Props) => {
+const Icon = ({ type, className = '' }: Props) => {
   const [link, setLink] = useState<string>("");
 
   /**
@@ -20,7 +21,7 @@ const Icon = ({ type }: Props) => {
   }, [type]);
 
   return (
-    <svg role="img" className="icon">
+    <svg role="img" className={`icon ${className}`}>
       <use xlinkHref={link}></use>
     </svg>
   );

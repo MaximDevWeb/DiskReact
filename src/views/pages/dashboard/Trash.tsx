@@ -1,14 +1,14 @@
+import ContentBreadcrumbs from "../../../components/ContentBreadcrumbs";
+
 /**
  * This is the Trash component.
  */
 
-type Props = {};
-
-const Trash = ({}: Props) => {
+const Trash = () => {
   return (
-    <div>
-      <h1>Trash</h1>
-    </div>
+    <main className="main">
+      <ContentBreadcrumbs />
+    </main>
   );
 };
 

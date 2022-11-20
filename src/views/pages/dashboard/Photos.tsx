@@ -1,14 +1,13 @@
 /**
  * This is the Photos component.
  */
+import ContentBreadcrumbs from "../../../components/ContentBreadcrumbs";
 
-type Props = {};
-
-const Photos = ({}: Props) => {
+const Photos = () => {
   return (
-    <div>
-      <h1>Photos</h1>
-    </div>
+    <main className="main">
+      <ContentBreadcrumbs />
+    </main>
   );
 };
 

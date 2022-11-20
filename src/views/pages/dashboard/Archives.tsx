@@ -1,14 +1,14 @@
+import ContentBreadcrumbs from "../../../components/ContentBreadcrumbs";
+
 /**
  * This is the Archives component.
  */
 
-type Props = {};
-
-const Archives = ({}: Props) => {
+const Archives = () => {
   return (
-    <div>
-      <h1>Archives</h1>
-    </div>
+    <main className="main">
+      <ContentBreadcrumbs />
+    </main>
   );
 };
 

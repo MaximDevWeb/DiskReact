@@ -1,20 +1,12 @@
+import ContentBreadcrumbs from "../../../components/ContentBreadcrumbs";
+
 /**
  * This is the Files component.
  */
 const Files = () => {
   return (
     <main className="main">
-      <ul className="breadcrumbs">
-        <li>
-          <a href="#">All Files</a>
-        </li>
-        <li>
-          <svg className="icon">
-            <use xlinkHref="#right_arrow"></use>
-          </svg>
-        </li>
-        <li>Personal Stuff</li>
-      </ul>
+      <ContentBreadcrumbs />
 
       <div className="folders">
         <a href="#" className="folder-item">

@@ -1,14 +1,14 @@
+import ContentBreadcrumbs from "../../../components/ContentBreadcrumbs";
+
 /**
  * This is the Shared component.
  */
 
-type Props = {};
-
-const Shared = ({}: Props) => {
+const Shared = () => {
   return (
-    <div>
-      <h1>Shared</h1>
-    </div>
+    <main className="main">
+      <ContentBreadcrumbs />
+    </main>
   );
 };
 

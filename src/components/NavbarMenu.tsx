@@ -1,36 +1,33 @@
 import menuList from "../models/menu";
-import { Link, useLocation, useMatch, useMatches } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Icon from "./icon/Icon";
-import { useEffect, useState } from "react";
+
 /**
  * This is the NavbarMenu component.
  */
-const NavbarMenu = () => {
-  const location = useLocation();
-  const [path, setPath] = useState<string>("");
 
+const NavbarMenu = () => {
   /**
-   * Changing the path when changing the location
+   * Function generate link className
+   *
+   * @param active
    */
-  useEffect(() => {
-    setPath(location.pathname);
-  }, [location]);
+  const getLinkClass = (active: boolean) => {
+    return (active ? "navbar__item_active" : "") + " navbar__item";
+  };
 
   return (
     <ul className="mt_xl navbar__list">
       {menuList.map((item) => (
         <li key={item.icon}>
-          <Link
+          <NavLink
             to={item.link}
-            className={
-              "navbar__item" +
-              (path === item.link ? " navbar__item_active" : "")
-            }
+            className={({ isActive }) => getLinkClass(isActive)}
             role="link"
           >
             <Icon type={item.icon} />
             {item.name}
-          </Link>
+          </NavLink>
         </li>
       ))}
     </ul>

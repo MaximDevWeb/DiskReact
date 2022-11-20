@@ -1,14 +1,14 @@
+import ContentBreadcrumbs from "../../../components/ContentBreadcrumbs";
+
 /**
  * This is the Albums component.
  */
 
-type Props = {};
-
-const Albums = ({}: Props) => {
+const Albums = () => {
   return (
-    <div>
-      <h1>Albums</h1>
-    </div>
+    <main className="main">
+      <ContentBreadcrumbs />
+    </main>
   );
 };
 

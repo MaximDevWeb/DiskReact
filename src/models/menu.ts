@@ -1,9 +1,9 @@
-import { MenuItem } from "../types/main";
+import { MenuItem } from "../types/app";
 
 const menuList: Array<MenuItem> = [
   {
     name: "Files",
-    link: "/dashboard",
+    link: "/dashboard/files",
     icon: "files",
   },
   {

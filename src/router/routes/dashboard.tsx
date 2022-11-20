@@ -1,4 +1,4 @@
-import { RouteObject } from "react-router-dom";
+import { Navigate, RouteObject } from "react-router-dom";
 import Page from "../../components/Page";
 import Dashboard from "../../views/layouts/Dashboard";
 import Files from "../../views/pages/dashboard/Files";
@@ -17,27 +17,49 @@ const dashboard: Array<RouteObject> = [
     children: [
       {
         index: true,
-        element: <Page element={Files} title="All files" />,
+        element: <Navigate to={"/dashboard/files"} />,
       },
       {
-        path: "photos",
+        path: "files/*",
+        element: <Page element={Files} title="All files" />,
+        loader: () => ({
+          title: "All files",
+        }),
+      },
+      {
+        path: "photos/*",
         element: <Page element={Photos} title="Photos" />,
+        loader: () => ({
+          title: "Photos",
+        }),
       },
       {
         path: "albums",
         element: <Page element={Albums} title="Albums" />,
+        loader: () => ({
+          title: "Albums",
+        }),
       },
       {
         path: "shares-access",
         element: <Page element={Shared} title="Shared" />,
+        loader: () => ({
+          title: "Shared",
+        }),
       },
       {
         path: "archives",
         element: <Page element={Archives} title="Archives" />,
+        loader: () => ({
+          title: "Archives",
+        }),
       },
       {
         path: "trash",
         element: <Page element={Trash} title="Trash" />,
+        loader: () => ({
+          title: "Trash",
+        }),
       },
     ],
   },

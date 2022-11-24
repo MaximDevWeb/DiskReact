@@ -1,0 +1,10 @@
+@use "../variable";
+
+.alert {
+  padding: variable.$padding 0;
+  text-align: center;
+
+  span {
+    color: variable.$danger;
+  }
+}

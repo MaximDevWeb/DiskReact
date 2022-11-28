@@ -1,9 +1,8 @@
 import { useParams } from "react-router-dom";
-import _ from "lodash";
 import { useGetFoldersQuery } from "../store/services/Folders";
 import ContentSkeleton from "./ContentSkeleton";
-import { Folder } from "../types/app";
 import ContentFolder from "./ContentFolder";
+import { Folder } from "../types/stores";
 
 /**
  * This is the ContentFolders component.
@@ -15,8 +14,8 @@ const ContentFolders = () => {
   /**
    * We monitor the url change and upload the updated data
    */
-  const slug = _.last(params["*"]?.split("/"));
-  const { data, isLoading: load } = useGetFoldersQuery(slug ?? "");
+  const prefix = params["*"];
+  const { data, isLoading: load } = useGetFoldersQuery(prefix || "");
 
   /**
    * Function render folders items

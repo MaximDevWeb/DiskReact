@@ -1,7 +1,6 @@
 import { Link, useLoaderData, useLocation, useParams } from "react-router-dom";
 import { Breadcrumbs, LoaderData } from "../types/app";
 import { Fragment, useEffect, useState } from "react";
-import _ from "lodash";
 import Icon from "./icon/Icon";
 
 /**
@@ -41,7 +40,7 @@ const ContentBreadcrumbs = () => {
     sub.forEach((item) => {
       parent = `${parent}/${item}`;
       list.push({
-        name: _.capitalize(_.startCase(item)),
+        name: item.replace(/-/g, " "),
         link: parent !== pathname ? parent : "",
       });
     });

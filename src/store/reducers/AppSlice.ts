@@ -1,21 +1,19 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 /**
  * App state manager
  */
 
 export interface AppState {
-  search: string,
-  modalFolderVisible: boolean
+  search: string;
 }
 
 const initialState: AppState = {
-  search: '',
-  modalFolderVisible: false
-}
+  search: "",
+};
 
 export const appSlice = createSlice({
-  name: 'app',
+  name: "app",
   initialState,
   reducers: {
     /**
@@ -24,14 +22,8 @@ export const appSlice = createSlice({
     setSearch: (state, action: PayloadAction<string>) => {
       state.search = action.payload;
     },
-    /**
-     * Change modalFolderVisible value
-     */
-    setModalFolderVisible: (state, action: PayloadAction<boolean>) => {
-      state.modalFolderVisible = action.payload;
-    }
-  }
-})
+  },
+});
 
-export const { setSearch, setModalFolderVisible } = appSlice.actions;
+export const { setSearch } = appSlice.actions;
 export default appSlice.reducer;

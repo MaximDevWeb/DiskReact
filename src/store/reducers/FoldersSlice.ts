@@ -22,16 +22,21 @@ export const folderSlice = createSlice({
   initialState,
   reducers: {
     /**
-     * Set visible folder modal
+     * The function set visible folder modal
      */
     setModalFolderVisible: (state, action: PayloadAction<boolean>) => {
       state.modalFolderVisible = action.payload;
     },
 
+    /**
+     * The function set data folder
+     */
     setDataFolder: (state, action: PayloadAction<FolderData>) => {
       state.data = action.payload;
     },
-
+    /**
+     * The function clean data folder
+     */
     cleanDataFolder: (state) => {
       state.data = {
         name: "",

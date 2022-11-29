@@ -7,7 +7,7 @@ import {
   setModalFolderVisible,
 } from "../store/reducers/FoldersSlice";
 import { useEffect, useState } from "react";
-import { EventData } from "../types/auth";
+import { ErrorsData, EventData } from "../types/auth";
 import {
   useCreateFolderMutation,
   useUpdateFolderMutation,
@@ -26,6 +26,7 @@ const ModalFolder = () => {
   const [createFolder, { isLoading: saving }] = useCreateFolderMutation();
   const [updateFolder, { isLoading: updating }] = useUpdateFolderMutation();
   const [title, setTitle] = useState("Create Folder");
+  const [error, setError] = useState<ErrorsData>({});
 
   useEffect(() => {
     setTitle(data.id ? "Rename Folder" : "Create Folder");
@@ -47,14 +48,14 @@ const ModalFolder = () => {
 
     try {
       if (data.id) {
-        await updateFolder(dataFolder);
+        await updateFolder(dataFolder).unwrap();
       } else {
-        await createFolder(dataFolder);
+        await createFolder(dataFolder).unwrap();
       }
 
       closeModal();
     } catch (err: any) {
-      console.log(err);
+      setError(err.data.errors as ErrorsData);
     }
   };
 
@@ -64,6 +65,7 @@ const ModalFolder = () => {
    */
   const changeHandler = (e: EventData) => {
     dispatch(setDataFolder({ ...data, name: e.value }));
+    setError({ ...error, name: [] });
   };
 
   /**
@@ -74,7 +76,7 @@ const ModalFolder = () => {
       name="name"
       value={data.name}
       placeholder="Folder name"
-      errors={[]}
+      errors={error.name || []}
       change={changeHandler}
     />
   );

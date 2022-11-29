@@ -33,9 +33,9 @@ export const foldersApi = createApi({
       }),
       invalidatesTags: ["Folder"],
     }),
-    deleteFolder: builder.mutation<any, Folder>({
-      query: (folder) => ({
-        url: `folders/${folder.id}`,
+    deleteFolder: builder.mutation<any, number>({
+      query: (id) => ({
+        url: `folders/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: ["Folder"],

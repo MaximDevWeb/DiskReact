@@ -10,6 +10,7 @@ import {
   setModalFolderVisible,
 } from "../store/reducers/FoldersSlice";
 import { useDeleteFolderMutation } from "../store/services/Folders";
+import { setConfirm } from "../store/reducers/AppSlice";
 
 /**
  * This is the ContentFolder component.
@@ -59,7 +60,13 @@ const ContentFolder = ({ item }: Props) => {
    * Function delete folder
    */
   const deleteFolderItem = () => {
-    deleteFolder(item);
+    dispatch(
+      setConfirm({
+        message: "Confirm deleting the folder!",
+        callback: deleteFolder,
+        callbackArgs: item.id,
+      })
+    );
   };
 
   return (

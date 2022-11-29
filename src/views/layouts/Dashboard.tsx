@@ -11,6 +11,7 @@ import NavbarMenu from "../../components/NavbarMenu";
 import HeaderSearch from "../../components/HeaderSearch";
 import HeaderButtons from "../../components/HeaderButtons";
 import ModalFolder from "../../components/ModalFolder";
+import AppConfirm from "../../components/AppConfirm";
 
 /**
  * This is the Dashboard component.
@@ -196,6 +197,7 @@ const Dashboard = () => {
           </div>
 
           <ModalFolder />
+          <AppConfirm />
           <Toasts />
         </div>
       )}

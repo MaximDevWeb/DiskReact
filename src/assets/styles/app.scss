@@ -334,6 +334,19 @@ h4 {
   }
 }
 
+.btn_danger {
+  border: 1px solid variable.$danger;
+  background-color: variable.$danger;
+  color: white;
+
+  &:hover,
+  &:active {
+    color: white;
+    background-color: variable.$danger;
+    box-shadow: variable.$shadow-black;
+  }
+}
+
 .btn_inactive {
   opacity: 0.8;
   filter: grayscale(1);

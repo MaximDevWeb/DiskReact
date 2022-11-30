@@ -23,7 +23,7 @@ describe("components.ContentBreadcrumbs", () => {
     const links = await screen.findAllByRole("link");
     expect(links.length).toBe(2);
 
-    const endPoint = screen.getByText("Moscow city");
+    const endPoint = screen.getByText("moscow city");
     expect(endPoint).toBeInTheDocument();
   });
 });

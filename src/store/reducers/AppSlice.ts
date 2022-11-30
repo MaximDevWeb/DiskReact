@@ -1,21 +1,27 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Confirm, ConfirmProps } from "../../types/app";
 
 /**
  * App state manager
  */
 
 export interface AppState {
-  search: string,
-  modalFolderVisible: boolean
+  search: string;
+  confirm: Confirm;
 }
 
 const initialState: AppState = {
-  search: '',
-  modalFolderVisible: false
-}
+  search: "",
+  confirm: {
+    message: "Confirm",
+    callback: null,
+    callbackArgs: null,
+    visible: false,
+  },
+};
 
 export const appSlice = createSlice({
-  name: 'app',
+  name: "app",
   initialState,
   reducers: {
     /**
@@ -25,13 +31,25 @@ export const appSlice = createSlice({
       state.search = action.payload;
     },
     /**
-     * Change modalFolderVisible value
+     * The function set confirm data
      */
-    setModalFolderVisible: (state, action: PayloadAction<boolean>) => {
-      state.modalFolderVisible = action.payload;
-    }
-  }
-})
+    setConfirm: (state, action: PayloadAction<ConfirmProps>) => {
+      state.confirm.message = action.payload.message;
+      state.confirm.callback = action.payload.callback;
+      state.confirm.callbackArgs = action.payload.callbackArgs;
 
-export const { setSearch, setModalFolderVisible } = appSlice.actions;
+      state.confirm.visible = true;
+    },
+    /**
+     * The function clean confirm data
+     */
+    closeConfirm: (state) => {
+      state.confirm.callback = null;
+      state.confirm.callbackArgs = null;
+      state.confirm.visible = false;
+    },
+  },
+});
+
+export const { setSearch, setConfirm, closeConfirm } = appSlice.actions;
 export default appSlice.reducer;

@@ -1,0 +1,57 @@
+@use "../variable";
+
+.confirm {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+.confirm__active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.confirm__bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(black, 0.25);
+}
+
+.confirm__content {
+  max-width: 300px;
+  width: 100%;
+  position: relative;
+  z-index: 1100;
+  background-color: white;
+  padding: variable.$padding;
+  margin: 0 variable.$margin-sm;
+  border-radius: variable.$bd-rd;
+}
+
+.confirm__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirm__footer {
+  display: flex;
+  justify-content: center;
+  margin-top: variable.$margin;
+
+  .btn {
+    margin-left: variable.$margin-xs;
+  }
+}

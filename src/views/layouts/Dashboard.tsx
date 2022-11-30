@@ -10,6 +10,8 @@ import NavbarBanner from "../../components/NavbarBanner";
 import NavbarMenu from "../../components/NavbarMenu";
 import HeaderSearch from "../../components/HeaderSearch";
 import HeaderButtons from "../../components/HeaderButtons";
+import ModalFolder from "../../components/ModalFolder";
+import AppConfirm from "../../components/AppConfirm";
 
 /**
  * This is the Dashboard component.
@@ -194,49 +196,8 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <aside className="modal">
-            <div className="modal__content">
-              <div className="modal__header">
-                <h2>Rename file</h2>
-
-                <a href="#" className="modal__close">
-                  <svg className="icon">
-                    <use xlinkHref="#close"></use>
-                  </svg>
-                </a>
-              </div>
-
-              <div className="modal__body">
-                <div className="input__block">
-                  <div className="input__error">login not found</div>
-                  <input
-                    type="text"
-                    className="input"
-                    placeholder="File name"
-                  />
-                </div>
-                <div className="input__block">
-                  <div className="input__error">login not found</div>
-                  <input
-                    type="text"
-                    className="input"
-                    placeholder="File name"
-                  />
-                </div>
-              </div>
-
-              <div className="modal__footer">
-                <a href="#" className="btn">
-                  Отмена
-                </a>
-                <a href="#" className="btn btn_default">
-                  Сохранить
-                </a>
-              </div>
-            </div>
-            <div className="modal__bg"></div>
-          </aside>
-
+          <ModalFolder />
+          <AppConfirm />
           <Toasts />
         </div>
       )}

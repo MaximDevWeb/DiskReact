@@ -1,8 +1,8 @@
-import {useAppDispatch} from "../store/store";
+import { useAppDispatch } from "../store/store";
 import Icon from "./icon/Icon";
-import {MouseEvent} from "react";
-import {setModalFolderVisible} from "../store/reducers/AppSlice";
+import { MouseEvent } from "react";
 import UploadButton from "./UploadButton";
+import { setModalFolderVisible } from "../store/reducers/FoldersSlice";
 
 /**
  * This is the HeaderButtons component.
@@ -20,7 +20,7 @@ const HeaderButtons = () => {
     e.preventDefault();
 
     dispatch(setModalFolderVisible(true));
-  }
+  };
 
   return (
     <>
@@ -32,6 +32,6 @@ const HeaderButtons = () => {
       </a>
     </>
   );
-}
+};
 
 export default HeaderButtons;

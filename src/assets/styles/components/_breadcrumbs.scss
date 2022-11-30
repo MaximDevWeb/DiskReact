@@ -1,12 +1,18 @@
 @use "../variable";
 
 .breadcrumbs {
+  font-size: variable.$font-xs;
+  text-transform: uppercase;
   display: flex;
   align-items: flex-start;
   margin-bottom: variable.$margin;
 
+  li {
+    height: 14px;
+  }
+
   .icon {
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    height: 14px;
   }
 }

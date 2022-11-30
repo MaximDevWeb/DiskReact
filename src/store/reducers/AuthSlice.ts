@@ -13,7 +13,7 @@ export interface AuthState {
 const initialState: AuthState = {
   user: null,
   token: localStorage.getItem("token") as string,
-  target: "/dashboard",
+  target: "/dashboard/files",
 };
 
 export const authSlice = createSlice({

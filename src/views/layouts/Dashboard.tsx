@@ -12,6 +12,7 @@ import HeaderSearch from "../../components/HeaderSearch";
 import HeaderButtons from "../../components/HeaderButtons";
 import ModalFolder from "../../components/ModalFolder";
 import AppConfirm from "../../components/AppConfirm";
+import NavbarMobileMenu from "../../components/NavbarMobileMenu";
 
 /**
  * This is the Dashboard component.
@@ -62,63 +63,7 @@ const Dashboard = () => {
               </aside>
             </header>
 
-            <nav className="mobile-menu">
-              <ul className="mobile-menu__list">
-                <li>
-                  <a href="#" className="mobile-menu__item mobile-menu_active">
-                    <svg className="icon">
-                      <use xlinkHref="#files"></use>
-                    </svg>
-                    Files
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#" className="mobile-menu__item">
-                    <svg className="icon">
-                      <use xlinkHref="#photo"></use>
-                    </svg>
-                    Photos
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#" className="mobile-menu__item">
-                    <svg className="icon">
-                      <use xlinkHref="#album"></use>
-                    </svg>
-                    Albums
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#" className="mobile-menu__item">
-                    <svg className="icon">
-                      <use xlinkHref="#shared"></use>
-                    </svg>
-                    Shared access
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#" className="mobile-menu__item">
-                    <svg className="icon">
-                      <use xlinkHref="#archive"></use>
-                    </svg>
-                    Archives
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#" className="mobile-menu__item">
-                    <svg className="icon">
-                      <use xlinkHref="#delete"></use>
-                    </svg>
-                    Trash
-                  </a>
-                </li>
-              </ul>
-            </nav>
+            <NavbarMobileMenu />
 
             <div className="content__wrapper">
               <Outlet />

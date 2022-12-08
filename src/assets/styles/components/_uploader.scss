@@ -36,7 +36,7 @@
   background-color: variable.$main;
   border-radius: variable.$bd-rd-sm variable.$bd-rd-sm 0 0;
 
-  a {
+  button {
     color: black;
   }
 }
@@ -86,6 +86,6 @@
   color: variable.$cusses;
 }
 
-a.uploader__option {
+button.uploader__option {
   color: variable.$danger;
 }

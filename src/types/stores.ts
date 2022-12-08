@@ -12,3 +12,8 @@ export type FolderData = {
   name: string;
   prefix?: string;
 };
+
+export type UploadProgress = {
+  fileName: string;
+  progress: number;
+};

@@ -13,6 +13,7 @@ import HeaderButtons from "../../components/HeaderButtons";
 import ModalFolder from "../../components/ModalFolder";
 import AppConfirm from "../../components/AppConfirm";
 import NavbarMobileMenu from "../../components/NavbarMobileMenu";
+import UploadLoader from "../../components/UploadLoader";
 
 /**
  * This is the Dashboard component.
@@ -141,6 +142,7 @@ const Dashboard = () => {
             </div>
           </div>
 
+          <UploadLoader />
           <ModalFolder />
           <AppConfirm />
           <Toasts />

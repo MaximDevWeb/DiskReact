@@ -1,6 +1,6 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { baseQuery } from "./baseQuery";
-import { Folder, FolderData } from "../../types/stores";
+import { baseQuery } from "../queries/baseQuery";
+import { FolderData } from "../../types/stores";
 
 /**
  * Folders api requests

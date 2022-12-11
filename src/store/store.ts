@@ -11,6 +11,7 @@ import AuthReducer from "../store/reducers/AuthSlice";
 import ToastsReducer from "./reducers/ToastsSlice";
 import UploadReducer from "./reducers/UploadSlice";
 import FoldersReducer from "./reducers/FoldersSlice";
+import FilesReducer from "./reducers/FilesSlice";
 
 const rootReducer = combineReducers({
   app: AppReducer,
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   toasts: ToastsReducer,
   upload: UploadReducer,
   folders: FoldersReducer,
+  files: FilesReducer,
   [authApi.reducerPath]: authApi.reducer,
   [foldersApi.reducerPath]: foldersApi.reducer,
   [uploadApi.reducerPath]: uploadApi.reducer,

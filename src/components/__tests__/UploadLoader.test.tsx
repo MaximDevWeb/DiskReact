@@ -12,6 +12,7 @@ describe("components.UploadLoader", () => {
     type: "text/html",
   });
 
+  // @ts-ignore
   store.dispatch(addFiles([fileOne, fileTwo]));
 
   const { container } = render(

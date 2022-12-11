@@ -25,3 +25,14 @@ export type ConfirmProps = {
   callback: Function;
   callbackArgs?: any;
 };
+
+export type InputSwitchItem = {
+  value: string;
+  icon: string;
+  id?: string;
+};
+
+export type InputSelectItem = {
+  value: string;
+  name: string;
+};

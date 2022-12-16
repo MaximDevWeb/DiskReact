@@ -4,6 +4,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { authApi } from "./services/Auth";
 import { foldersApi } from "./services/Folders";
 import { uploadApi } from "./services/Upload";
+import { filesApi } from "./services/Files";
 import { authError } from "./middleware/authError";
 
 import AppReducer from "./reducers/AppSlice";
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   [authApi.reducerPath]: authApi.reducer,
   [foldersApi.reducerPath]: foldersApi.reducer,
   [uploadApi.reducerPath]: uploadApi.reducer,
+  [filesApi.reducerPath]: filesApi.reducer,
 });
 
 export const store = configureStore({
@@ -32,6 +34,7 @@ export const store = configureStore({
       authApi.middleware,
       foldersApi.middleware,
       uploadApi.middleware,
+      filesApi.middleware,
       authError
     ),
 });

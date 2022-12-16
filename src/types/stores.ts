@@ -17,3 +17,12 @@ export type UploadProgress = {
   fileName: string;
   progress: number;
 };
+
+export type FileType = {
+  id: number;
+  name: string;
+  size: number;
+  type: string;
+  link: string;
+  created_at: string;
+};

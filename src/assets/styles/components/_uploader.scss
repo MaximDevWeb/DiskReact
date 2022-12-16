@@ -63,7 +63,7 @@
 }
 
 .uploader__name {
-  width: 100%;
+  max-width: 265px;
   font-size: variable.$font-sm;
   text-overflow: ellipsis;
   overflow: hidden;

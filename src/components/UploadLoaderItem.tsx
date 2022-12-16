@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import getFileExt from "../models/fileExt";
 import Icon from "./icon/Icon";
 import { useParams } from "react-router-dom";
-import { useLoadFileMutation } from "../store/services/Upload";
 import { useAppDispatch, useAppSelector } from "../store/store";
 import { removeFile } from "../store/reducers/UploadSlice";
 import { addToast } from "../store/reducers/ToastsSlice";
 import { ToastType } from "../types/toasts";
+import { useLoadFileMutation } from "../store/services/Files";
 
 /**
  * This is the UploadLoaderItem component.

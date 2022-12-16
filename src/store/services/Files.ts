@@ -7,13 +7,23 @@ import { baseQuery } from "../queries/baseQuery";
 export const filesApi = createApi({
   reducerPath: "filesApi",
   baseQuery,
+  tagTypes: ["File"],
   endpoints: (builder) => ({
-    LoadFilesList: builder.query<any, string>({
+    loadFilesList: builder.query<any, string>({
       query: (folder) => ({
         url: "files?folder=" + folder,
       }),
+      providesTags: ["File"],
+    }),
+    loadFile: builder.mutation<any, FormData>({
+      query: (data) => ({
+        url: "files",
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: ["File"],
     }),
   }),
 });
 
-export const { useLoadFilesListQuery } = filesApi;
+export const { useLoadFilesListQuery, useLoadFileMutation } = filesApi;

@@ -3,6 +3,8 @@ import { DateTime } from "luxon";
 import getFileExt from "../models/fileExt";
 import { numToSize } from "../helpers/numbers";
 import Icon from "./icon/Icon";
+import { useAppDispatch } from "../store/store";
+import { setEditFile } from "../store/reducers/FilesSlice";
 
 /**
  * This is the ContentFilesListItem component.
@@ -15,6 +17,8 @@ type Props = {
 };
 
 const ContentFilesListItem = ({ item }: Props) => {
+  const dispatch = useAppDispatch();
+
   /**
    * Parse the file creation date
    *
@@ -24,8 +28,14 @@ const ContentFilesListItem = ({ item }: Props) => {
     return DateTime.fromISO(date).setLocale("ru").toLocaleString();
   };
 
+  /**
+   * Set edit file
+   */
+  const setFile = () => {
+    dispatch(setEditFile(item));
+  };
   return (
-    <div className="file">
+    <div className="file" onClick={setFile}>
       <img
         className="file__icon"
         src={"/images/files/" + getFileExt(item.type)}

@@ -2,6 +2,8 @@ import "@testing-library/react/dont-cleanup-after-each";
 import { cleanup, render, screen } from "@testing-library/react";
 import ContentFilesListItem from "../ContentFilesListItem";
 import { FileType } from "../../types/stores";
+import { Provider } from "react-redux";
+import { store } from "../../store/store";
 
 afterAll(() => {
   cleanup();
@@ -17,7 +19,11 @@ describe("components.ContentFilesListItem", () => {
     created_at: "2022-12-07T19:34:39",
   };
 
-  const { container } = render(<ContentFilesListItem item={item} />);
+  const { container } = render(
+    <Provider store={store}>
+      <ContentFilesListItem item={item} />
+    </Provider>
+  );
 
   test("test icon render", () => {
     const img = screen.getByAltText("Test.php");

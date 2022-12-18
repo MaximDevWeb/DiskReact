@@ -264,7 +264,7 @@
   color: white;
   padding: variable.$padding-sm variable.$padding;
   border-radius: 0 0 variable.$bd-rd variable.$bd-rd;
-  z-index: 999;
+  z-index: 45;
   transition: all 0.3s;
 
   .btn {
@@ -289,7 +289,7 @@
 }
 
 .footer__name {
-  max-width: 320px;
+  width: 320px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
@@ -320,7 +320,8 @@
   display: flex;
   align-items: center;
 
-  a {
+  a,
+  button {
     display: flex;
     align-items: center;
     color: variable.$link;
@@ -347,7 +348,8 @@
     flex-wrap: wrap;
     margin-top: 0;
 
-    a {
+    a,
+    button {
       margin: variable.$margin-xs variable.$margin-xs 0;
     }
   }

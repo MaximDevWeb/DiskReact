@@ -39,6 +39,12 @@ export const filesApi = createApi({
       }),
       invalidatesTags: ["File"],
     }),
+    generateHashLink: builder.mutation<any, void>({
+      query: () => ({
+        url: "hash/generate",
+        method: "POST",
+      }),
+    }),
   }),
 });
 
@@ -47,4 +53,5 @@ export const {
   useLoadFileMutation,
   useDeleteFileMutation,
   useUpdateFileMutation,
+  useGenerateHashLinkMutation,
 } = filesApi;

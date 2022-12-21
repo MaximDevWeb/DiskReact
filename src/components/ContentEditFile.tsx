@@ -1,7 +1,10 @@
 import { useAppDispatch, useAppSelector } from "../store/store";
 import Icon from "./icon/Icon";
 import { setEditFile, setModalFileVisible } from "../store/reducers/FilesSlice";
-import { useDeleteFileMutation } from "../store/services/Files";
+import {
+  useDeleteFileMutation,
+  useGenerateHashLinkMutation,
+} from "../store/services/Files";
 import { setConfirm } from "../store/reducers/AppSlice";
 import { useEffect } from "react";
 import { addToast } from "../store/reducers/ToastsSlice";
@@ -15,6 +18,10 @@ const ContentEditFile = () => {
   const { editFile: file } = useAppSelector((state) => state.files);
   const [deleteFile, { isSuccess: deleted, isError: notDeleted }] =
     useDeleteFileMutation();
+  const [
+    generateHashLink,
+    { data, isSuccess: generated, isError: notGenerated },
+  ] = useGenerateHashLinkMutation();
 
   /**
    * Monitor delete file
@@ -40,6 +47,26 @@ const ContentEditFile = () => {
       );
     }
   }, [notDeleted]);
+
+  /**
+   * Monitor generate hash link
+   */
+  useEffect(() => {
+    if (generated) {
+      window.open(`${file?.private_link}/${data.hash}`, "_blank");
+    }
+  }, [generated]);
+
+  useEffect(() => {
+    if (notGenerated) {
+      dispatch(
+        addToast({
+          message: "Link generate error",
+          type: ToastType.danger,
+        })
+      );
+    }
+  }, [notGenerated]);
 
   /**
    * The function clean edit file
@@ -68,15 +95,23 @@ const ContentEditFile = () => {
     );
   };
 
+  /**
+   * The function generate and open download link
+   */
+  const getLinkAndOpen = () => {
+    generateHashLink();
+  };
+
   return (
     <div className={"footer" + (file ? " footer_active" : "")}>
       <div className="footer__name">{file?.name}</div>
 
       <div className="footer__button">
-        <a href={file?.link} className="btn btn_sm" target="_blank">
+        <button className="btn btn_sm" onClick={getLinkAndOpen}>
           <Icon type="download" />
           Download
-        </a>
+        </button>
+
         <button className="btn btn_sm">
           <Icon type="upload" />
           Share

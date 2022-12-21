@@ -23,6 +23,6 @@ export type FileType = {
   name: string;
   size: number;
   type: string;
-  link: string;
+  private_link: string;
   created_at: string;
 };

@@ -22,18 +22,13 @@ describe("components.ContentEditFile", () => {
       name: "Test.php",
       size: 1233422333,
       type: "php",
-      link: "/test/test/test.php",
+      private_link: "/test/test/test.php",
       created_at: "2022-12-07T19:34:39",
     })
   );
 
   test("test file name", () => {
     expect(screen.getByText("Test.php")).toBeInTheDocument();
-  });
-
-  test("test link href", () => {
-    const link = container.querySelector(".footer__button a");
-    expect(link).toHaveAttribute("href", "/test/test/test.php");
   });
 
   test("test close editor", async () => {

@@ -5,6 +5,8 @@ import { numToSize } from "../helpers/numbers";
 import Icon from "./icon/Icon";
 import { useAppDispatch } from "../store/store";
 import { setEditFile } from "../store/reducers/FilesSlice";
+import { addToast } from "../store/reducers/ToastsSlice";
+import { MouseEvent } from "react";
 
 /**
  * This is the ContentFilesListItem component.
@@ -34,6 +36,19 @@ const ContentFilesListItem = ({ item }: Props) => {
   const setFile = () => {
     dispatch(setEditFile(item));
   };
+
+  /**
+   * The function copy public link
+   */
+  const copyLink = async (e: MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+
+    if (item) {
+      await navigator.clipboard.writeText(item.public_link as string);
+      dispatch(addToast({ message: "Link copied" }));
+    }
+  };
+
   return (
     <div className="file" onClick={setFile}>
       <img
@@ -44,8 +59,13 @@ const ContentFilesListItem = ({ item }: Props) => {
       <div className="file__name">{item.name}</div>
       <div className="file__date">{parseDate(item.created_at)}</div>
       <div className="file__size">{numToSize(item.size)}</div>
-      <div className="file__link">
-        <Icon type="link" />
+
+      <div className="file__share">
+        {item.public_link && (
+          <div className="file__link" onClick={copyLink}>
+            <Icon type="link" />
+          </div>
+        )}
       </div>
     </div>
   );

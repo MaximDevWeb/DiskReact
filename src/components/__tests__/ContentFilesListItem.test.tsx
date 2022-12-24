@@ -15,7 +15,8 @@ describe("components.ContentFilesListItem", () => {
     name: "Test.php",
     size: 1233422333,
     type: "php",
-    link: "/test/test/test.php",
+    private_link: "/test/test/test.php",
+    public_link: "/test/test/test.php",
     created_at: "2022-12-07T19:34:39",
   };
 

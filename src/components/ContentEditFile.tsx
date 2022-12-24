@@ -9,6 +9,8 @@ import { setConfirm } from "../store/reducers/AppSlice";
 import { useEffect } from "react";
 import { addToast } from "../store/reducers/ToastsSlice";
 import { ToastType } from "../types/toasts";
+import ContentEditFileShare from "./ContentEditFileShare";
+import ContentEditFileShareDelete from "./ContentEditFileShareDelete";
 
 /**
  * This is the ContentEditFile component.
@@ -112,10 +114,7 @@ const ContentEditFile = () => {
           Download
         </button>
 
-        <button className="btn btn_sm">
-          <Icon type="upload" />
-          Share
-        </button>
+        <ContentEditFileShare file={file} />
       </div>
 
       <div className="footer__option">
@@ -129,10 +128,7 @@ const ContentEditFile = () => {
           Delete
         </button>
 
-        <button>
-          <Icon type="unlink" />
-          Delete link
-        </button>
+        <ContentEditFileShareDelete file={file} />
 
         <button className="footer__close" onClick={cleanEditFile}>
           <Icon type="close" />

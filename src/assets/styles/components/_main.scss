@@ -160,6 +160,12 @@
   color: black;
 }
 
+.file__share {
+  flex: none;
+  width: 30px;
+  height: 30px;
+}
+
 .file__link {
   flex: none;
   display: flex;

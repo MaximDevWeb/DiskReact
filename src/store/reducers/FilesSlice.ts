@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { FileType } from "../../types/stores";
+import { useAppDispatch } from "../store";
 
 /**
  * Files state manager

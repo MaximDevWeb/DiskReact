@@ -3,6 +3,7 @@ import Site from "../../views/layouts/Site";
 import Home from "../../views/pages/site/Home";
 import Policy from "../../views/pages/site/Policy";
 import Page from "../../components/Page";
+import Download from "../../views/pages/site/Download";
 
 const site: Array<RouteObject> = [
   {
@@ -21,6 +22,13 @@ const site: Array<RouteObject> = [
         element: <Page element={Policy} />,
         loader: () => ({
           title: "Privacy policy",
+        }),
+      },
+      {
+        path: "/link/:hash",
+        element: <Page element={Download} />,
+        loader: () => ({
+          title: "Download file",
         }),
       },
     ],

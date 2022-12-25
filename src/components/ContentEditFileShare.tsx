@@ -6,6 +6,7 @@ import { useAppDispatch } from "../store/store";
 import { setEditFile } from "../store/reducers/FilesSlice";
 import { addToast } from "../store/reducers/ToastsSlice";
 import { ToastType } from "../types/toasts";
+import { copyFileLink, generatePublicPageLink } from "../helpers/fileLink";
 
 /**
  * This is the ContentEditFileShare component.
@@ -58,8 +59,8 @@ const ContentEditFileShare = ({ file }: Props) => {
    */
   const copyLink = async () => {
     if (file) {
-      await navigator.clipboard.writeText(file.public_link as string);
-      dispatch(addToast({ message: "Link copied" }));
+      const link = generatePublicPageLink(file.public_hash as string);
+      copyFileLink(link);
     }
   };
 

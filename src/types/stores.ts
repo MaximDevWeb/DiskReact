@@ -24,6 +24,7 @@ export type FileType = {
   size: number;
   type: string;
   private_link: string;
+  public_hash: string | null;
   public_link: string | null;
   created_at: string;
 };

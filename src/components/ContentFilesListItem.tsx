@@ -5,8 +5,8 @@ import { numToSize } from "../helpers/numbers";
 import Icon from "./icon/Icon";
 import { useAppDispatch } from "../store/store";
 import { setEditFile } from "../store/reducers/FilesSlice";
-import { addToast } from "../store/reducers/ToastsSlice";
 import { MouseEvent } from "react";
+import { copyFileLink, generatePublicPageLink } from "../helpers/fileLink";
 
 /**
  * This is the ContentFilesListItem component.
@@ -43,10 +43,8 @@ const ContentFilesListItem = ({ item }: Props) => {
   const copyLink = async (e: MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
 
-    if (item) {
-      await navigator.clipboard.writeText(item.public_link as string);
-      dispatch(addToast({ message: "Link copied" }));
-    }
+    const link = generatePublicPageLink(item.public_hash as string);
+    copyFileLink(link);
   };
 
   return (

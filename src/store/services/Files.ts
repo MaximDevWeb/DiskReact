@@ -61,6 +61,13 @@ export const filesApi = createApi({
       }),
       invalidatesTags: ["File"],
     }),
+    loadPublicLinkFile: builder.mutation<any, string>({
+      query: (hash) => ({
+        url: "files/public-file",
+        method: "POST",
+        body: { hash },
+      }),
+    }),
   }),
 });
 
@@ -72,4 +79,5 @@ export const {
   useGenerateHashLinkMutation,
   useGeneratePublicLinkMutation,
   useDeletePublicLinkMutation,
+  useLoadPublicLinkFileMutation,
 } = filesApi;

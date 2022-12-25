@@ -6,6 +6,27 @@
   align-items: center;
 }
 
+.download__preload {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    height: 40px;
+    width: 40px;
+    margin-bottom: 20px;
+  }
+}
+
+.download__file {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .download__logo {
   width: 150px;
   height: auto;

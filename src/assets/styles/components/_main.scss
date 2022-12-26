@@ -215,6 +215,7 @@
   }
 
   .file__name {
+    text-align: center;
     margin: variable.$margin 0;
   }
 
@@ -222,6 +223,10 @@
   .file__size {
     width: auto;
     margin: 0 variable.$margin-xs;
+  }
+
+  .file__share {
+    margin-top: variable.$margin-sm;
   }
 
   @media (max-width: 1800px) {

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useLoadFilesListQuery } from "../store/services/Files";
 import { FileType } from "../types/stores";
 import { useEffect } from "react";
+import { useAppSelector } from "../store/store";
 
 /**
  * This is the ContentFilesList component.
@@ -11,13 +12,13 @@ import { useEffect } from "react";
 
 const ContentFilesList = () => {
   const params = useParams();
+  const { style } = useAppSelector((state) => state.files);
 
   /**
    * We monitor the url change and upload the updated data
    */
   const folder = params["*"];
   const { data, isLoading: load, error } = useLoadFilesListQuery(folder || "");
-
 
   /**
    * Function render files items
@@ -40,7 +41,9 @@ const ContentFilesList = () => {
   };
 
   return (
-    <div className="files__list">
+    <div
+      className={"files__list" + (style === "grid" ? " files__list_grid" : "")}
+    >
       {load ? (
         <ContentSkeleton type="files_list" items={6} />
       ) : (

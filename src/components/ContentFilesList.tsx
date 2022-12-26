@@ -3,8 +3,9 @@ import ContentFilesListItem from "./ContentFilesListItem";
 import { useParams } from "react-router-dom";
 import { useLoadFilesListQuery } from "../store/services/Files";
 import { FileType } from "../types/stores";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAppSelector } from "../store/store";
+import { isFileGroup } from "../models/fileGroup";
 
 /**
  * This is the ContentFilesList component.
@@ -12,22 +13,36 @@ import { useAppSelector } from "../store/store";
 
 const ContentFilesList = () => {
   const params = useParams();
-  const { style } = useAppSelector((state) => state.files);
+  const { style, filter } = useAppSelector((state) => state.files);
+  const [files, setFiles] = useState([]);
 
   /**
    * We monitor the url change and upload the updated data
    */
   const folder = params["*"];
-  const { data, isLoading: load, error } = useLoadFilesListQuery(folder || "");
+  const { data, isLoading: load } = useLoadFilesListQuery(folder || "");
+
+  /**
+   * Files filter to store
+   */
+  useEffect(() => {
+    if (data) {
+      if (filter) {
+        setFiles(
+          data.files.filter((item: FileType) => isFileGroup(item.type, filter))
+        );
+      } else {
+        setFiles(data.files);
+      }
+    }
+  }, [data, filter]);
 
   /**
    * Function render files items
-   *
-   * @param files
    */
-  const renderFiles = (files: Array<FileType>) => {
+  const renderFiles = () => {
     if (files.length) {
-      return files.map((file) => (
+      return files.map((file: FileType) => (
         <ContentFilesListItem item={file} key={file.id} />
       ));
     } else {
@@ -44,11 +59,7 @@ const ContentFilesList = () => {
     <div
       className={"files__list" + (style === "grid" ? " files__list_grid" : "")}
     >
-      {load ? (
-        <ContentSkeleton type="files_list" items={6} />
-      ) : (
-        renderFiles(data.files)
-      )}
+      {load ? <ContentSkeleton type="files_list" items={6} /> : renderFiles()}
     </div>
   );
 };

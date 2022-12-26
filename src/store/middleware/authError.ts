@@ -12,7 +12,7 @@ import { ToastType } from "../../types/toasts";
 
 export const authError: Middleware =
   (api: MiddlewareAPI) => (next) => (action) => {
-    if (action.error && action.payload.status === 401) {
+    if (action.error && action.payload && action.payload.status === 401) {
       store.dispatch(cleanAuth());
       store.dispatch(
         addToast({

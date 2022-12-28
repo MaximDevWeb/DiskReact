@@ -120,6 +120,7 @@
 .file {
   display: flex;
   align-items: center;
+  min-height: 58px;
   background-color: white;
   padding: variable.$padding-xs variable.$padding-sm;
   border: 1px solid white;
@@ -207,6 +208,7 @@
     flex-wrap: wrap;
     justify-content: center;
     padding: variable.$padding;
+    min-height: 170px;
   }
 
   .file__icon {

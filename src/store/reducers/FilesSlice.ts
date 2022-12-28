@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { FileType } from "../../types/stores";
-import { useAppDispatch } from "../store";
 
 /**
  * Files state manager
@@ -11,6 +10,8 @@ export interface FilesState {
   filter: string;
   editFile: FileType | null;
   modalFileVisible: boolean;
+  filePerPage: number;
+  currentPage: number;
 }
 
 const initialState: FilesState = {
@@ -18,6 +19,8 @@ const initialState: FilesState = {
   filter: "",
   editFile: null,
   modalFileVisible: false,
+  filePerPage: 50,
+  currentPage: 1,
 };
 
 export const filesSlice = createSlice({
@@ -38,6 +41,12 @@ export const filesSlice = createSlice({
       state.filter = action.payload;
     },
     /**
+     * Set current page
+     */
+    setPage: (state, action: PayloadAction<number>) => {
+      state.currentPage = action.payload;
+    },
+    /**
      * Set edit file
      */
     setEditFile: (state, action: PayloadAction<FileType | null>) => {
@@ -52,6 +61,11 @@ export const filesSlice = createSlice({
   },
 });
 
-export const { setStyle, setFilter, setEditFile, setModalFileVisible } =
-  filesSlice.actions;
+export const {
+  setStyle,
+  setFilter,
+  setPage,
+  setEditFile,
+  setModalFileVisible,
+} = filesSlice.actions;
 export default filesSlice.reducer;

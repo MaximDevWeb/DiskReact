@@ -17,6 +17,7 @@ describe("components.ContentFilesListItem", () => {
     type: "php",
     private_link: "/test/test/test.php",
     public_link: "/test/test/test.php",
+    public_hash: "ghf56h5h6hh",
     created_at: "2022-12-07T19:34:39",
   };
 

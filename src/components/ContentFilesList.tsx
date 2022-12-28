@@ -6,6 +6,8 @@ import { FileType } from "../types/stores";
 import { useEffect, useState } from "react";
 import { useAppSelector } from "../store/store";
 import { isFileGroup } from "../models/fileGroup";
+import ContentFilesNav from "./ContentFilesNav";
+import _ from "lodash";
 
 /**
  * This is the ContentFilesList component.
@@ -13,8 +15,11 @@ import { isFileGroup } from "../models/fileGroup";
 
 const ContentFilesList = () => {
   const params = useParams();
-  const { style, filter } = useAppSelector((state) => state.files);
+  const { style, filter, currentPage, filePerPage } = useAppSelector(
+    (state) => state.files
+  );
   const [files, setFiles] = useState([]);
+  const [filesInPage, setFilesInPage] = useState([]);
 
   /**
    * We monitor the url change and upload the updated data
@@ -38,13 +43,34 @@ const ContentFilesList = () => {
   }, [data, filter]);
 
   /**
+   * Files render to page
+   */
+  useEffect(() => {
+    if (files.length) {
+      setFilesInPage(_.chunk(files, filePerPage)[currentPage - 1]);
+    }
+  }, [files, currentPage]);
+
+  /**
    * Function render files items
    */
   const renderFiles = () => {
-    if (files.length) {
-      return files.map((file: FileType) => (
-        <ContentFilesListItem item={file} key={file.id} />
-      ));
+    if (filesInPage.length) {
+      return (
+        <>
+          <div
+            className={
+              "files__list" + (style === "grid" ? " files__list_grid" : "")
+            }
+          >
+            {filesInPage.map((file: FileType) => (
+              <ContentFilesListItem item={file} key={file.id} />
+            ))}
+          </div>
+
+          <ContentFilesNav files={files.length} />
+        </>
+      );
     } else {
       return (
         <div className="alert">
@@ -55,13 +81,22 @@ const ContentFilesList = () => {
     }
   };
 
-  return (
-    <div
-      className={"files__list" + (style === "grid" ? " files__list_grid" : "")}
-    >
-      {load ? <ContentSkeleton type="files_list" items={6} /> : renderFiles()}
-    </div>
-  );
+  /**
+   * Function render preload items
+   */
+  const renderPreload = () => {
+    return (
+      <div
+        className={
+          "files__list" + (style === "grid" ? " files__list_grid" : "")
+        }
+      >
+        <ContentSkeleton type="files_list" items={6} />
+      </div>
+    );
+  };
+
+  return <>{load ? renderPreload() : renderFiles()}</>;
 };
 
 export default ContentFilesList;

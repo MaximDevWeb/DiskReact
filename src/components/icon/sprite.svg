@@ -329,6 +329,13 @@
   <symbol
     fill="none"
     viewBox="0 0 24 24"
+    id="left_arrow"
+  >
+    <path d="M14 17L12.237 15.2527C10.8311 13.8592 10.1281 13.1625 10.0199 12.3133C9.99337 12.1053 9.99337 11.8947 10.0199 11.6867C10.1281 10.8375 10.8311 10.1408 12.237 8.74731L14 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  </symbol>
+  <symbol
+    fill="none"
+    viewBox="0 0 24 24"
     id="upload"
   >
     <path
@@ -455,5 +462,28 @@
       stroke-width="1.5"
       stroke-linecap="round"
     ></path>
+  </symbol>
+  <symbol
+    fill="none"
+    viewBox="0 0 24 24"
+    id="double_left_arrow"
+  >
+    <path d="M10 17L8.23703 15.2527C6.8311 13.8592 6.12813 13.1625 6.01989 12.3133C5.99337 12.1053 5.99337 11.8947 6.01989 11.6867C6.12813 10.8375 6.8311 10.1408 8.23703 8.74731L10 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M18 17L16.237 15.2527C14.8311 13.8592 14.1281 13.1625 14.0199 12.3133C13.9934 12.1053 13.9934 11.8947 14.0199 11.6867C14.1281 10.8375 14.8311 10.1408 16.237 8.74731L18 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  </symbol>
+  <symbol
+    fill="none"
+    viewBox="0 0 24 24"
+    id="double_right_arrow"
+  >
+    <path d="M14 7L15.763 8.74731C17.1689 10.1408 17.8719 10.8375 17.9801 11.6867C18.0066 11.8947 18.0066 12.1053 17.9801 12.3133C17.8719 13.1625 17.1689 13.8592 15.763 15.2527L14 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M6 7L7.76297 8.74731C9.1689 10.1408 9.87187 10.8375 9.98011 11.6867C10.0066 11.8947 10.0066 12.1053 9.98011 12.3133C9.87187 13.1625 9.1689 13.8592 7.76297 15.2527L6 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  </symbol>
+  <symbol
+    fill="none"
+    viewBox="0 0 24 24"
+    id="right_arrow"
+  >
+    <path d="M14 17L12.237 15.2527C10.8311 13.8592 10.1281 13.1625 10.0199 12.3133C9.99337 12.1053 9.99337 11.8947 10.0199 11.6867C10.1281 10.8375 10.8311 10.1408 12.237 8.74731L14 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
   </symbol>
 </svg>

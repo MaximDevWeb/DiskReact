@@ -1,0 +1,46 @@
+@use "../variable";
+
+.files-nav {
+  margin-top: variable.$margin-lg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.files-nav__btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  box-shadow: variable.$shadow;
+  margin: 0 variable.$margin-xxs;
+  border-radius: variable.$bd-rd-xs;
+  transition: all 0.3s;
+
+  &:hover {
+    box-shadow: variable.$shadow-black-sm;
+  }
+}
+
+.files-nav__counter {
+  margin: 0 variable.$margin-xxs;
+
+  span {
+    display: inline-block;
+    margin-left: variable.$margin-xs;
+    font-size: variable.$font-sm;
+  }
+}
+
+.files-nav__input {
+  height: 34px;
+  width: 54px;
+  text-align: center;
+  border: none;
+  outline: none;
+  background-color: white;
+  box-shadow: variable.$shadow;
+  border-radius: variable.$bd-rd-xs;
+}

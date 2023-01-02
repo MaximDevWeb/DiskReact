@@ -48,6 +48,8 @@ const ContentFilesList = () => {
   useEffect(() => {
     if (files.length) {
       setFilesInPage(_.chunk(files, filePerPage)[currentPage - 1]);
+    } else {
+      setFilesInPage([]);
     }
   }, [files, currentPage]);
 

@@ -32,3 +32,20 @@ export const numToSize = (
 
   return bytes.toFixed(dp) + " " + units[u];
 };
+
+/**
+ * Rounds the percent to fixed
+ *
+ * @param percent
+ */
+export const percentToFixed = (percent: number): string => {
+  if (percent > 0.1) {
+    return percent.toFixed(1);
+  } else if (percent < 0.1 && percent > 0.01) {
+    return percent.toFixed(2);
+  } else if (percent < 0.01 && percent > 0.001) {
+    return percent.toFixed(3);
+  } else {
+    return "-";
+  }
+};

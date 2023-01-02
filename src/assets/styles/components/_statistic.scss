@@ -22,6 +22,11 @@
   position: relative;
   margin-top: variable.$margin-lg;
 
+  canvas {
+    width: 260px;
+    height: 260px;
+  }
+
   @media (max-width: 900px) {
     display: none;
   }

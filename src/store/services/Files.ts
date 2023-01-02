@@ -1,5 +1,6 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { baseQuery } from "../queries/baseQuery";
+import { Statistic } from "../../types/stores";
 
 /**
  * Files api requests
@@ -68,6 +69,12 @@ export const filesApi = createApi({
         body: { hash },
       }),
     }),
+    loadStatistic: builder.query<any, void>({
+      query: () => ({
+        url: "/statistic",
+      }),
+      providesTags: ["File"],
+    }),
   }),
 });
 
@@ -80,4 +87,5 @@ export const {
   useGeneratePublicLinkMutation,
   useDeletePublicLinkMutation,
   useLoadPublicLinkFileMutation,
+  useLoadStatisticQuery,
 } = filesApi;

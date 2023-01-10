@@ -17,6 +17,7 @@ describe("components.ContentEditFileShare", () => {
       size: 1233422333,
       type: "php",
       private_link: "/test/test/test.php",
+      public_hash: "fdghdfgdfgdfgdfg",
       public_link: "/test/test/test.php",
       created_at: "2022-12-07T19:34:39",
     };
@@ -37,6 +38,7 @@ describe("components.ContentEditFileShare", () => {
       size: 1233422333,
       type: "php",
       private_link: "/test/test/test.php",
+      public_hash: null,
       public_link: null,
       created_at: "2022-12-07T19:34:39",
     };

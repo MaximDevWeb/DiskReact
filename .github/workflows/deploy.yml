@@ -1,0 +1,37 @@
+name: React Deploy
+on:
+  pull_request:
+    branches: [master]
+    types: [closed]
+  workflow_dispatch:
+
+jobs:
+  react-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: load repository files
+        uses: actions/checkout@v3
+
+      - name: Install npm dependencies
+        run: npm install
+
+      - name: Test app
+        run: npm run test
+
+      - name: Build app
+        run: npm run build
+
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: "${{ secrets.SSH_KEY }}"
+          known_hosts: "just-a-placeholder-so-we-dont-get-errors"
+
+      - name: Generate auth hosts
+        run: ssh-keyscan -H ${{ secrets.REMOTE_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deployment
+        run: rsync -acp --delete
+          --exclude '.htaccess'
+          ./dist/ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/a0761558/domains/maxim-dev.ru/public_html/disk-react/

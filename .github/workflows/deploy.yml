@@ -34,4 +34,4 @@ jobs:
       - name: Deployment
         run: rsync -acp --delete
           --exclude '.htaccess'
-          ./dist/ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/a0761558/domains/maxim-dev.ru/public_html/disk-react/
+          ./build/ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/a0761558/domains/maxim-dev.ru/public_html/disk-react/

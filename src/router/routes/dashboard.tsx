@@ -31,6 +31,7 @@ const dashboard: Array<RouteObject> = [
         element: <Page element={Photos} />,
         loader: () => ({
           title: "Photos",
+          dev: true,
         }),
       },
       {
@@ -38,6 +39,7 @@ const dashboard: Array<RouteObject> = [
         element: <Page element={Albums} />,
         loader: () => ({
           title: "Albums",
+          dev: true,
         }),
       },
       {
@@ -45,6 +47,7 @@ const dashboard: Array<RouteObject> = [
         element: <Page element={Shared} />,
         loader: () => ({
           title: "Shared",
+          dev: true,
         }),
       },
       {
@@ -52,6 +55,7 @@ const dashboard: Array<RouteObject> = [
         element: <Page element={Archives} />,
         loader: () => ({
           title: "Archives",
+          dev: true,
         }),
       },
       {
@@ -59,6 +63,7 @@ const dashboard: Array<RouteObject> = [
         element: <Page element={Trash} />,
         loader: () => ({
           title: "Trash",
+          dev: true,
         }),
       },
     ],

@@ -11,6 +11,7 @@ export type Breadcrumbs = {
 
 export type LoaderData = {
   title?: string;
+  dev?: boolean;
 };
 
 export type Confirm = {

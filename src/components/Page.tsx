@@ -1,6 +1,7 @@
 import { ComponentType, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import { LoaderData } from "../types/app";
+import ContentDevelopment from "./ContentDevelopment";
 
 /**
  * This is the Page render component.
@@ -11,7 +12,7 @@ type Props = {
 };
 
 const Page = ({ element: Element }: Props) => {
-  const { title } = useLoaderData() as LoaderData;
+  const { title, dev } = useLoaderData() as LoaderData;
 
   /**
    * Set Title for Page
@@ -20,7 +21,7 @@ const Page = ({ element: Element }: Props) => {
     document.title = (title ?? "") + process.env.REACT_APP_TITLE_PREFIX;
   }, [title]);
 
-  return <Element />;
+  return dev ? <ContentDevelopment /> : <Element />;
 };
 
 export default Page;

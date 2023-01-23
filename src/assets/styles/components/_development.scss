@@ -1,0 +1,10 @@
+@use "../variable";
+
+.development {
+  text-align: center;
+
+  img {
+    max-width: 350px;
+    height: auto;
+  }
+}
